@@ -15,11 +15,20 @@
         <div class='nav-right'>
             <a href="{% url 'post_new' %}">+Yangi post qo'shish</a>
         </div>
-        <div>
-            {% block content %}
+    </header> 
+    
+    {% if user.is_authenticated %}
+    <p>{{user.username}}, saytga xush kelibsiz</p> 
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+    <p>Siz saytga kirmagansiz</p>
+    <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
 
-            {% endblock content %}
-        </div>
-    </header>
+    <div>
+        {% block content %}
+
+        {% endblock content %}
+    </div>  
 </body>
 </html>
