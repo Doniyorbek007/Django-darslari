@@ -10,12 +10,28 @@
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'home' %}">Django blogi</a></h1>
+        <div class='nav-left'>
+            <h1><a href="{% url 'home' %}">Django blogi</a></h1>
+        </div>
+        <div class='nav-right'>
+            <a href="{% url 'post_new' %}">+Yangi post qo'shish</a>
+        </div>
+    </header> 
+    
+    {% if user.is_authenticated %}
+    <p>{{user.username}}, saytga xush kelibsiz</p> 
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+    <p>Siz saytga kirmagansiz</p>
+    <a href="{% url 'login' %}">Log In</a>
+    |
+    <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+    {% endif %}
+
     <div>
         {% block content %}
 
         {% endblock content %}
-    </div>
-    </header>
+    </div>  
 </body>
 </html>
