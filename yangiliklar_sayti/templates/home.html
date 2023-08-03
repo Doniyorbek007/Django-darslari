@@ -4,9 +4,9 @@
 
 {% block content %}
 
-{% if user.is.authenticated %}
+{% if user.is_authenticated %}
     {{user.username}}, saytiga xush kelibsiz
-    <p><a href="{% url 'logout' %}"></a></p>
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
 
 {% else %}
     <p>Siz hali saytga kirmagansiz</p>
