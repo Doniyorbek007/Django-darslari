@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        {% block title %}
-            Yangiliklar saytiga xush kelibsiz!  
+        {% block title %}Yangiliklar saytiga xush kelibsiz
         {% endblock title %}
     </title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
     <style>
-        .form-text{
-            display:none;
-        }
-    </style>
+       #hint_id_username,#hint_id_password1,#hint_id_password2{
+           display:none
+       }
+   </style>
 </head>
 <body>
-    
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 <a class="navbar-brand" href="{% url 'home' %}">Newspaper</a>
 
@@ -26,12 +27,12 @@ aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarCollapse">
-{% if user.is_authenticated %}
-<ul class="navbar-nav ml-auto">
-<li class="nav-item">
-<a class="nav-link dropdown-toggle" href="#" id="userMenu"
-data-toggle="dropdown" aria-haspopup="true"
-aria-expanded="false">
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" id="userMenu"
+            data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
 {{ user.username }}
 </a>
 <div class="dropdown-menu dropdown-menu-right"
@@ -40,7 +41,7 @@ aria-labelledby="userMenu">
 href="{% url 'password_change'%}">Change password</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="{% url 'logout' %}">
-Log Out</a>
+    Log Out</a>
 </div>
 </li>
 </ul>
@@ -55,13 +56,10 @@ Ro'yxatdan o'tkazish</a>
 </div>
 </nav>
 <div class="container">
-{% block content %}
-
-{% endblock content %}
+    {% block content %}
+    
+    {% endblock content %}
 </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
