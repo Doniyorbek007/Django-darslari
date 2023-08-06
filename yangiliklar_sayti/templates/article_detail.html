@@ -5,6 +5,9 @@
 <div class="article-entry">
     <h2>{{object.title}}</h2>
     <p>{{object.author}} | {{object.date}}</p>
+    {% if article.photo %}
+        <img src="{{object.photo.url}}" alt="{{object.title}}">
+    {% endif %}
     <p>{{object.body}}</p>
 </div>
 <p>

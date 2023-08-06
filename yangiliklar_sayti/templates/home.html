@@ -1,15 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}Bosh sahifa{% endblock title %} 
+{%block content %}
 
-{% block title %}Bosh sahifa{% endblock title %}
-
-{% block content %}
-
-<div class="juumbutton text-center">
-    <h1 class="display-4">Yangiliklar sayti</h1>
-    <p class="lead">Eng tezkor yangiliklar bizning saytimizda</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role='button'>Barcha maqolalarni ko'rish</a>
-    </p>
+<div class="jumbutton text-center">
+  <h1 class="display-4">Yangiliklar sayti</h1>
+  <p class="lead">Eng tezkor yangiliklar bizning saytimizda</p>
+  <p class="lead">
+    <a
+      class="btn btn-primary btn-lg"
+      href="{% url 'article_list' %}"
+      role="button"
+      >Barcha maqolalarni ko'rish</a>
+  </p>
 </div>
 
 {% endblock content %}
