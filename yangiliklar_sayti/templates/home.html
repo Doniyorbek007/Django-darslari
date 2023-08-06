@@ -4,14 +4,12 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-    {{user.username}}, saytiga xush kelibsiz
-    <p><a href="{% url 'logout' %}">Log Out</a></p>
-
-{% else %}
-    <p>Siz hali saytga kirmagansiz</p>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Ro'yxatdan O'tish</a>
-{% endif %}
+<div class="juumbutton text-center">
+    <h1 class="display-4">Yangiliklar sayti</h1>
+    <p class="lead">Eng tezkor yangiliklar bizning saytimizda</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role='button'>Barcha maqolalarni ko'rish</a>
+    </p>
+</div>
 
 {% endblock content %}
