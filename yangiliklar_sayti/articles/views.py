@@ -3,20 +3,20 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView,CreateView
 from django.urls import reverse_lazy
-from .models import Articles
+from .models import Article
 
 # Create your views here.
 class ArticleListView(ListView):
-    model = Articles
+    model = Article
     template_name = 'article_list.html'
 
 class ArticleDetailView(LoginRequiredMixin,DetailView):
-    model = Articles
+    model = Article
     template_name = 'article_detail.html'
     login_url = 'login'
 
 class ArticleUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
-    model = Articles
+    model = Article
     fields = ['title', 'body','photo']
     template_name = "article_edit.html"
     login_url = 'login'
@@ -26,7 +26,7 @@ class ArticleUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         return obj.author == self.request.user 
 
 class ArticleDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
-    model = Articles
+    model = Article
     template_name = "article_delete.html"
     success_url = reverse_lazy('article_list')  
     login_url = 'login'
@@ -36,7 +36,7 @@ class ArticleDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
         return obj.author == self.request.user 
 
 class ArticleCreateView(LoginRequiredMixin,CreateView):
-    model = Articles
+    model = Article
     template_name = 'article_new.html'
     fields = ['title','body','photo']
     login_url = 'login' 
